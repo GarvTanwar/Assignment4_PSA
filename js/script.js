@@ -3,6 +3,8 @@ const previousButton = document.querySelector("#prev-card");
 const nextButton = document.querySelector("#next-card");
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector("#nav-links");
+const podcastPlayButton = document.querySelector(".podcast-trigger");
+const podcastPlayer = document.querySelector("#podcast-player");
 
 function scrollCards(direction) {
   if (!carousel) return;
@@ -18,6 +20,13 @@ function scrollCards(direction) {
 
 previousButton?.addEventListener("click", () => scrollCards(-1));
 nextButton?.addEventListener("click", () => scrollCards(1));
+
+podcastPlayButton?.addEventListener("click", () => {
+  podcastPlayButton.setAttribute("hidden", "");
+  if (podcastPlayer) {
+    podcastPlayer.removeAttribute("hidden");
+  }
+});
 
 menuToggle?.addEventListener("click", () => {
   const isOpen = navLinks.classList.toggle("is-open");
