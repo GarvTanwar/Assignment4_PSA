@@ -21,12 +21,28 @@ nextButton?.addEventListener("click", () => scrollCards(1));
 
 menuToggle?.addEventListener("click", () => {
   const isOpen = navLinks.classList.toggle("is-open");
+  menuToggle.classList.toggle("is-open", isOpen);
   menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+  document.body.classList.toggle("menu-open", isOpen);
 });
 
 navLinks?.addEventListener("click", (event) => {
   if (event.target.tagName === "A") {
     navLinks.classList.remove("is-open");
+    menuToggle?.classList.remove("is-open");
     menuToggle?.setAttribute("aria-expanded", "false");
+    menuToggle?.setAttribute("aria-label", "Open menu");
+    document.body.classList.remove("menu-open");
   }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape" || !navLinks?.classList.contains("is-open")) return;
+
+  navLinks.classList.remove("is-open");
+  menuToggle?.classList.remove("is-open");
+  menuToggle?.setAttribute("aria-expanded", "false");
+  menuToggle?.setAttribute("aria-label", "Open menu");
+  document.body.classList.remove("menu-open");
 });
