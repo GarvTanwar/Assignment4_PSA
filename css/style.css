@@ -22,6 +22,8 @@
 html {
   scroll-behavior: smooth;
   min-height: 100%;
+  scrollbar-color: var(--green-700) var(--mint);
+  scrollbar-width: thin;
 }
 
 body {
@@ -35,6 +37,25 @@ body {
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--mint);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--green-700), var(--green-900));
+  border: 3px solid var(--mint);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--yellow), var(--green-700));
 }
 
 main {

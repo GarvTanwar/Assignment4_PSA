@@ -36,6 +36,10 @@ Assignment4_PSA/
     |-- image.html
     |-- impacts.html
     |-- infographic.html
+    |-- kids-6-7.html
+    |-- kids-9-10.html
+    |-- kids-12-13.html
+    |-- kids-15-16.html
     |-- kids.html
     |-- podcast.html
     |-- references.html
@@ -69,7 +73,23 @@ This page is for the physical artefact. It explains that the artefact could be a
 
 ### `pages/kids.html`
 
-This page explains how parents can teach energy-saving habits to children at different ages. It includes separate sections for ages 6-7, 9-10, 12-13, and 15-16.
+This page is the general overview for teaching children by age. It includes all age groups together.
+
+### `pages/kids-6-7.html`
+
+This page is only for ages 6-7. It explains basic habits like turning off lights, closing doors, and learning through simple parent reminders.
+
+### `pages/kids-9-10.html`
+
+This page is only for ages 9-10. It focuses on building routine through checking switches, unplugging chargers, and helping before bedtime or leaving home.
+
+### `pages/kids-12-13.html`
+
+This page is only for ages 12-13. It explains how pre-teens can understand energy waste, power bills, and shared family responsibility.
+
+### `pages/kids-15-16.html`
+
+This page is only for ages 15-16. It explains how teenagers can manage their own devices and lead by example for younger siblings.
 
 ### `pages/climate-change.html`
 
