@@ -752,14 +752,14 @@ h2 {
   flex-shrink: 0;
   position: relative;
   overflow: hidden;
-  min-height: 560px;
+  min-height: 620px;
   padding: 72px max(64px, calc((100% - 1180px) / 2)) 56px;
   color: var(--white);
   background: #163f36;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   display: grid;
-  grid-template-columns: minmax(260px, 1.5fr) minmax(140px, 0.55fr) minmax(190px, 0.7fr);
-  gap: 86px;
+  grid-template-columns: minmax(270px, 1.55fr) repeat(4, minmax(116px, 0.55fr));
+  gap: 48px;
   align-items: start;
 }
 
@@ -783,41 +783,59 @@ h2 {
 }
 
 .footer-column {
-  gap: 13px;
+  gap: 9px;
+  min-width: 0;
 }
 
 .footer-heading {
-  margin: 0 0 6px;
-  color: rgba(255, 255, 255, 0.66);
-  font-size: 12px;
+  margin: 0 0 8px;
+  color: rgba(255, 255, 255, 0.44);
+  font-size: 10px;
   font-weight: 900;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   line-height: 1.1;
   text-transform: uppercase;
 }
 
-.site-footer a {
-  color: rgba(255, 255, 255, 0.68);
-  font-size: 14px;
-  font-weight: 600;
+.footer-column a {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 13px;
+  font-weight: 500;
   line-height: 1.25;
   text-decoration: none;
   transition: color 160ms ease, transform 160ms ease;
 }
 
-.site-footer a:hover,
-.site-footer a:focus-visible {
+.footer-column a:hover,
+.footer-column a:focus-visible {
   color: var(--white);
   outline: none;
   transform: translateX(3px);
 }
 
 .footer-name {
-  color: var(--white);
-  font-size: 28px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 12px;
+  color: #f7fff9;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 3vw, 2.65rem);
   font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: 0;
+  line-height: 0.96;
+  letter-spacing: 0.01em;
+  text-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.footer-name::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  bottom: 0;
+  width: 96px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--yellow), rgba(232, 244, 236, 0.78), transparent);
+  border-radius: 999px;
 }
 
 .footer-description {
@@ -935,6 +953,104 @@ h2 {
   width: 100%;
   margin: 18px 0 20px;
   border-radius: 16px;
+}
+
+.policy-page {
+  width: min(900px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 82px 0 104px;
+}
+
+.policy-page h1 {
+  margin: 0 0 18px;
+  color: var(--green-900);
+  font-size: clamp(2.4rem, 6vw, 4.25rem);
+  line-height: 1;
+}
+
+.policy-intro {
+  max-width: 760px;
+  margin: 0 0 48px;
+  color: var(--muted);
+  font-size: 1.12rem;
+  line-height: 1.7;
+}
+
+.policy-section {
+  max-width: 780px;
+  padding: 30px 0;
+  border-top: 1px solid var(--line);
+}
+
+.policy-section:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.policy-section h2 {
+  margin: 0 0 14px;
+  color: var(--green-900);
+  font-size: clamp(1.35rem, 3vw, 1.9rem);
+  line-height: 1.2;
+}
+
+.policy-section p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.03rem;
+  line-height: 1.75;
+}
+
+.policy-section p + p {
+  margin-top: 14px;
+}
+
+.learn-page {
+  width: min(900px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 82px 0 104px;
+}
+
+.learn-page h1 {
+  margin: 0 0 18px;
+  color: var(--green-900);
+  font-size: clamp(2.4rem, 6vw, 4.25rem);
+  line-height: 1;
+}
+
+.learn-intro {
+  max-width: 760px;
+  margin: 0 0 48px;
+  color: var(--muted);
+  font-size: 1.12rem;
+  line-height: 1.7;
+}
+
+.learn-section {
+  max-width: 780px;
+  padding: 30px 0;
+  border-top: 1px solid var(--line);
+}
+
+.learn-section:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.learn-section h2 {
+  margin: 0 0 14px;
+  color: var(--green-900);
+  font-size: clamp(1.35rem, 3vw, 1.9rem);
+  line-height: 1.2;
+}
+
+.learn-section p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.03rem;
+  line-height: 1.75;
+}
+
+.learn-section p + p {
+  margin-top: 14px;
 }
 
 .contact-page {
@@ -1791,11 +1907,29 @@ button:focus-visible {
     padding: 54px 0 68px;
   }
 
+  .policy-page {
+    padding: 54px 0 72px;
+  }
+
+  .learn-page {
+    padding: 54px 0 72px;
+  }
+
   .contact-page {
     padding: 54px 0 68px;
   }
 
   .info-page h1 {
+    font-size: 2.9rem;
+    line-height: 1.04;
+  }
+
+  .policy-page h1 {
+    font-size: 2.9rem;
+    line-height: 1.04;
+  }
+
+  .learn-page h1 {
     font-size: 2.9rem;
     line-height: 1.04;
   }
@@ -1819,10 +1953,10 @@ button:focus-visible {
   }
 
   .site-footer {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 34px 24px;
-    min-height: 500px;
-    padding: 42px 24px 58px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 32px 22px;
+    min-height: 640px;
+    padding: 42px 24px 250px;
     align-items: start;
   }
 
@@ -1833,9 +1967,9 @@ button:focus-visible {
 
   .footer-energy-art {
     left: 50%;
-    bottom: 16px;
-    width: calc(100% - 32px);
-    opacity: 0.32;
+    bottom: 24px;
+    width: min(900px, calc(100% - 32px));
+    opacity: 0.34;
   }
 }
 
@@ -1847,6 +1981,8 @@ button:focus-visible {
   .closing-summary,
   .podcast-page,
   .info-page,
+  .policy-page,
+  .learn-page,
   .contact-page {
     width: min(100% - 24px, 1180px);
   }
@@ -1865,21 +2001,38 @@ button:focus-visible {
   }
 
   .site-footer {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    min-height: auto;
-    padding: 36px 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 20px;
+    min-height: 760px;
+    padding: 36px 16px 210px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
   }
 
   .footer-column {
     gap: 8px;
   }
 
+  .footer-heading {
+    margin-bottom: 6px;
+  }
+
+  .footer-column a {
+    font-size: 13px;
+  }
+
   .footer-energy-art {
-    bottom: 8px;
-    width: 760px;
-    max-width: none;
-    opacity: 0.2;
+    bottom: 24px;
+    width: calc(100% - 28px);
+    max-width: 460px;
+    opacity: 0.34;
+    transform: translateX(-50%);
+  }
+
+  .footer-energy-art .energy-icons {
+    stroke-width: 3;
   }
 
   .hero {
@@ -1913,6 +2066,14 @@ button:focus-visible {
   }
 
   .info-page h1 {
+    font-size: 2.45rem;
+  }
+
+  .policy-page h1 {
+    font-size: 2.45rem;
+  }
+
+  .learn-page h1 {
     font-size: 2.45rem;
   }
 

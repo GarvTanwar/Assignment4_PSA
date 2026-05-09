@@ -36,12 +36,26 @@ function renderFooter() {
   return `
     <footer class="site-footer">
       <div class="footer-brand">
-        <a class="footer-name" href="${page("index.html")}">Powering Tomorrow</a>
+        <p class="footer-name">Powering Tomorrow</p>
         <p class="footer-description">Helping families build simple energy-saving habits at home, one everyday routine at a time.</p>
         <p class="footer-copy">&copy; 2026 Powering Tomorrow. All rights reserved.</p>
       </div>
       <nav class="footer-column" aria-label="Footer navigation">
-        <p class="footer-heading">Explore</p>
+        <p class="footer-heading">Campaign</p>
+        <a href="${page("pages/podcast.html")}">Podcast</a>
+        <a href="${page("pages/image.html")}">PSA Campaign</a>
+        <a href="${page("pages/infographic.html")}">Infographic</a>
+        <a href="${page("pages/artefact.html")}">Physical Artefact</a>
+      </nav>
+      <nav class="footer-column" aria-label="Learning links">
+        <p class="footer-heading">Learn</p>
+        <a href="${page("pages/climate-change.html")}">Climate Change</a>
+        <a href="${page("pages/sustainable-living.html")}">Sustainable Living</a>
+        <a href="${page("pages/understanding-energy-bill.html")}">Understanding Your Energy Bill</a>
+        <a href="${page("pages/future-technology.html")}">Future Technology</a>
+      </nav>
+      <nav class="footer-column" aria-label="Support links">
+        <p class="footer-heading">Support</p>
         <a href="${page("pages/about.html")}">About Us</a>
         <a href="${page("pages/faq.html")}">FAQ</a>
         <a href="${page("pages/contact.html")}">Contact Us</a>
@@ -49,10 +63,10 @@ function renderFooter() {
       </nav>
       <nav class="footer-column" aria-label="Policies">
         <p class="footer-heading">Policies</p>
-        <a href="${page("pages/policies.html#terms")}">Terms of Use</a>
-        <a href="${page("pages/policies.html#privacy")}">Privacy Policy</a>
-        <a href="${page("pages/policies.html#accessibility")}">Accessibility</a>
-        <a href="${page("pages/policies.html#copyright")}">Copyright &amp; Usage</a>
+        <a href="${page("pages/terms-of-use.html")}">Terms of Use</a>
+        <a href="${page("pages/privacy-policy.html")}">Privacy Policy</a>
+        <a href="${page("pages/accessibility.html")}">Accessibility</a>
+        <a href="${page("pages/copyright-usage.html")}">Copyright &amp; Usage</a>
       </nav>
       <svg class="footer-energy-art" viewBox="0 0 1200 360" aria-hidden="true" focusable="false">
         <g class="energy-icons">
