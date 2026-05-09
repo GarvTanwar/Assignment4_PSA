@@ -1,8 +1,6 @@
 const carousel = document.querySelector(".carousel");
 const previousButton = document.querySelector("#prev-card");
 const nextButton = document.querySelector("#next-card");
-const menuToggle = document.querySelector(".menu-toggle");
-const navLinks = document.querySelector("#nav-links");
 const podcastPlayButton = document.querySelector(".podcast-trigger");
 const podcastPlayer = document.querySelector("#podcast-player");
 const contactForm = document.querySelector("#contact-form");
@@ -20,6 +18,39 @@ function scrollCards(direction) {
   });
 }
 
+function setupMenu() {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector("#nav-links");
+
+  menuToggle?.addEventListener("click", () => {
+    const isOpen = navLinks.classList.toggle("is-open");
+    menuToggle.classList.toggle("is-open", isOpen);
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    document.body.classList.toggle("menu-open", isOpen);
+  });
+
+  navLinks?.addEventListener("click", (event) => {
+    if (event.target.tagName !== "A") return;
+
+    navLinks.classList.remove("is-open");
+    menuToggle?.classList.remove("is-open");
+    menuToggle?.setAttribute("aria-expanded", "false");
+    menuToggle?.setAttribute("aria-label", "Open menu");
+    document.body.classList.remove("menu-open");
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape" || !navLinks?.classList.contains("is-open")) return;
+
+    navLinks.classList.remove("is-open");
+    menuToggle?.classList.remove("is-open");
+    menuToggle?.setAttribute("aria-expanded", "false");
+    menuToggle?.setAttribute("aria-label", "Open menu");
+    document.body.classList.remove("menu-open");
+  });
+}
+
 previousButton?.addEventListener("click", () => scrollCards(-1));
 nextButton?.addEventListener("click", () => scrollCards(1));
 
@@ -32,33 +63,7 @@ podcastPlayButton?.addEventListener("click", () => {
   }
 });
 
-menuToggle?.addEventListener("click", () => {
-  const isOpen = navLinks.classList.toggle("is-open");
-  menuToggle.classList.toggle("is-open", isOpen);
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
-  menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
-  document.body.classList.toggle("menu-open", isOpen);
-});
-
-navLinks?.addEventListener("click", (event) => {
-  if (event.target.tagName === "A") {
-    navLinks.classList.remove("is-open");
-    menuToggle?.classList.remove("is-open");
-    menuToggle?.setAttribute("aria-expanded", "false");
-    menuToggle?.setAttribute("aria-label", "Open menu");
-    document.body.classList.remove("menu-open");
-  }
-});
-
-document.addEventListener("keydown", (event) => {
-  if (event.key !== "Escape" || !navLinks?.classList.contains("is-open")) return;
-
-  navLinks.classList.remove("is-open");
-  menuToggle?.classList.remove("is-open");
-  menuToggle?.setAttribute("aria-expanded", "false");
-  menuToggle?.setAttribute("aria-label", "Open menu");
-  document.body.classList.remove("menu-open");
-});
+setupMenu();
 
 contactForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
