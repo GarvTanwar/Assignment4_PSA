@@ -1,1 +1,322 @@
 @import url("../global.css");
+
+body {
+  background:
+    linear-gradient(180deg, #f8f1e3 0, var(--paper) 360px, #f5efe4 100%);
+}
+
+.climate-page {
+  overflow: hidden;
+}
+
+.climate-hero,
+.climate-split,
+.climate-routine {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.climate-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
+  gap: 52px;
+  align-items: end;
+  min-height: 620px;
+  padding: 76px 0 58px;
+}
+
+.climate-hero-copy {
+  padding-bottom: 34px;
+}
+
+.climate-hero h1 {
+  max-width: 640px;
+  margin: 0;
+  color: #2c2117;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.2rem, 7vw, 6.6rem);
+  line-height: 0.92;
+}
+
+.climate-hero-copy > p:not(.section-label) {
+  max-width: 620px;
+  margin: 28px 0 0;
+  color: #594c3f;
+  font-size: clamp(1.08rem, 1.7vw, 1.25rem);
+  line-height: 1.68;
+}
+
+.climate-hero-figure {
+  position: relative;
+  min-height: 520px;
+  margin: 0;
+  overflow: hidden;
+  background: #5a412e;
+  border-radius: 0 0 0 86px;
+}
+
+.climate-hero-figure::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 52%;
+  background: linear-gradient(180deg, transparent, rgba(38, 27, 18, 0.82));
+}
+
+.climate-hero-figure img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+}
+
+.climate-hero-figure figcaption {
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: 26px;
+  z-index: 1;
+  color: rgba(255, 253, 247, 0.86);
+  font-size: 0.98rem;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.climate-lede {
+  padding: 72px max(24px, calc((100% - 1180px) / 2));
+  background: #392819;
+}
+
+.climate-lede p {
+  max-width: 940px;
+  margin: 0;
+  color: #fff4dc;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.65rem, 3.2vw, 3rem);
+  line-height: 1.18;
+}
+
+.climate-split {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.75fr) minmax(0, 1fr);
+  gap: 70px;
+  padding: 90px 0;
+  border-bottom: 1px solid rgba(83, 60, 36, 0.18);
+}
+
+.climate-section-heading {
+  position: relative;
+  padding-top: 18px;
+}
+
+.climate-section-heading::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 86px;
+  height: 4px;
+  background: #b48755;
+}
+
+.climate-section-heading h2,
+.climate-band h2,
+.climate-routine h2 {
+  margin: 0;
+  color: #2c2117;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.1rem, 4.2vw, 4rem);
+  line-height: 1;
+}
+
+.climate-copy {
+  display: grid;
+  gap: 24px;
+}
+
+.climate-copy p {
+  margin: 0;
+  color: #574d42;
+  font-size: 1.08rem;
+  line-height: 1.82;
+}
+
+.climate-band {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1fr);
+  gap: 48px 70px;
+  padding: 86px max(24px, calc((100% - 1180px) / 2));
+  color: #fff8ec;
+  background:
+    linear-gradient(90deg, rgba(46, 33, 22, 0.95), rgba(69, 49, 32, 0.9)),
+    linear-gradient(135deg, #4a3321, #21170f);
+}
+
+.climate-band .section-label {
+  color: #e7c37a;
+}
+
+.climate-band h2 {
+  color: #fff8ec;
+}
+
+.climate-band > p {
+  max-width: 690px;
+  margin: 0;
+  color: rgba(255, 248, 236, 0.78);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.climate-band blockquote {
+  grid-column: 2;
+  margin: 0;
+  padding: 24px 0 0 28px;
+  border-left: 4px solid #e7c37a;
+}
+
+.climate-band blockquote p {
+  max-width: 680px;
+  margin: 0;
+  color: #fff8ec;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.45rem, 2.7vw, 2.35rem);
+  line-height: 1.25;
+}
+
+.climate-routine {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1fr);
+  gap: 70px;
+  padding: 94px 0 112px;
+}
+
+.routine-list {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid rgba(83, 60, 36, 0.22);
+}
+
+.routine-list article {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(83, 60, 36, 0.22);
+}
+
+.routine-list span {
+  color: #9c744a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.routine-list h3 {
+  margin: 0 0 8px;
+  color: #2c2117;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+.routine-list p {
+  margin: 0;
+  color: #5d5145;
+  font-size: 1.03rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 920px) {
+  .climate-hero,
+  .climate-split,
+  .climate-band,
+  .climate-routine {
+    grid-template-columns: 1fr;
+  }
+
+  .climate-hero {
+    min-height: auto;
+    gap: 26px;
+    padding-top: 58px;
+  }
+
+  .climate-hero-copy {
+    padding-bottom: 0;
+  }
+
+  .climate-hero-figure {
+    min-height: 380px;
+    border-radius: 0 0 0 58px;
+  }
+
+  .climate-hero-figure img {
+    height: 380px;
+  }
+
+  .climate-split,
+  .climate-routine {
+    gap: 36px;
+    padding: 68px 0;
+  }
+
+  .climate-band {
+    gap: 30px;
+    padding-top: 64px;
+    padding-bottom: 70px;
+  }
+
+  .climate-band blockquote {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .climate-hero,
+  .climate-split,
+  .climate-routine {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .climate-hero {
+    padding: 46px 0 42px;
+  }
+
+  .climate-hero h1 {
+    font-size: clamp(3rem, 18vw, 4.4rem);
+  }
+
+  .climate-hero-figure {
+    min-height: 320px;
+    border-radius: 0 0 0 38px;
+  }
+
+  .climate-hero-figure img {
+    height: 320px;
+  }
+
+  .climate-hero-figure figcaption {
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    font-size: 0.9rem;
+  }
+
+  .climate-lede {
+    padding: 50px 18px;
+  }
+
+  .climate-band {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .routine-list article {
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 16px;
+    padding: 24px 0;
+  }
+
+  .routine-list span {
+    font-size: 1.75rem;
+  }
+}

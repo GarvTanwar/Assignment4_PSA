@@ -10,17 +10,79 @@
   <div data-layout="header"></div>
   <main class="contact-page" id="main-content">
     <section class="contact-hero" aria-labelledby="contact-title">
-      <p class="section-label">Contact Us</p>
-      <h1 id="contact-title">Contact the Powering Tomorrow team</h1>
+      <h1 id="contact-title">Contact us</h1>
       <p>
-        Send a general question about the campaign, request resources, or contact the team using the details below.
+        Get in touch and ask us anything about the podcast, PSA campaign, infographic, or ways to save energy at home.
       </p>
     </section>
 
-    <section class="contact-layout" aria-label="Contact information and form">
+    <section class="contact-form-showcase" aria-label="Contact form">
+      <figure class="contact-illustration contact-illustration-left" aria-hidden="true">
+        <img src="../assets/images/contactus_1.png" alt="">
+      </figure>
+      <section class="contact-form-panel" aria-labelledby="form-title">
+        <h2 id="form-title">Send us a message</h2>
+        <form id="contact-form" action="https://formspree.io/f/xbdwzzvk" method="post" novalidate>
+          <p class="form-status" id="form-status" aria-live="polite"></p>
+          <div class="form-row form-row-half">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" minlength="2" placeholder="Your name" aria-describedby="name-error" required>
+            <span class="field-error" id="name-error"></span>
+          </div>
+
+          <div class="form-row form-row-half">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="Email address" aria-describedby="email-error" required>
+            <span class="field-error" id="email-error"></span>
+          </div>
+
+          <div class="form-row">
+            <label for="subject">Subject</label>
+            <input id="subject" name="subject" type="text" minlength="3" placeholder="Subject" aria-describedby="subject-error" required>
+            <span class="field-error" id="subject-error"></span>
+          </div>
+
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" minlength="10" placeholder="How can we help?" aria-describedby="message-error" required></textarea>
+            <span class="field-error" id="message-error"></span>
+          </div>
+
+          <button class="button primary dark" type="submit">Send your message</button>
+        </form>
+      </section>
+      <figure class="contact-illustration contact-illustration-right" aria-hidden="true">
+        <img src="../assets/images/contactus_2.png" alt="">
+      </figure>
+    </section>
+
+    <section class="contact-layout" aria-labelledby="contact-details-title">
+      <div class="contact-details-heading">
+        <h2 id="contact-details-title">Get in touch with Powering Tomorrow</h2>
+      </div>
       <div class="contact-directory">
+        <section class="contact-faq-card" aria-labelledby="contact-faq-title">
+          <h3 id="contact-faq-title">FAQ</h3>
+          <details open>
+            <summary>Can I ask about the podcast?</summary>
+            <p>Yes. Send us questions about the episode, transcript, summary, or any part of the energy-saving message.</p>
+          </details>
+          <details>
+            <summary>How quickly will you reply?</summary>
+            <p>We usually respond within two business days.</p>
+          </details>
+          <details>
+            <summary>Can I ask about the PSA campaign?</summary>
+            <p>Yes. You can ask about the PSA image, infographic, physical artefact, or the message behind the campaign.</p>
+          </details>
+          <details>
+            <summary>Is this website for parents and kids?</summary>
+            <p>Yes. The content is made to help parents and their kids understand simple ways to save energy at home.</p>
+          </details>
+        </section>
+
         <section class="contact-card">
-          <h2>Main Website Contact</h2>
+          <h3>Main Website Contact</h3>
           <dl class="contact-list">
             <div>
               <dt>Email</dt>
@@ -40,47 +102,7 @@
             </div>
           </dl>
         </section>
-
-        <section class="contact-card">
-          <h2>Campaign Support</h2>
-          <p>
-            For questions about the PSA campaign, podcast, infographic, or classroom-friendly resources,
-            contact the team by email or use the form.
-          </p>
-        </section>
       </div>
-
-      <section class="contact-form-panel" aria-labelledby="form-title">
-        <h2 id="form-title">Submit a question</h2>
-        <form id="contact-form" action="https://formspree.io/f/xbdwzzvk" method="post" novalidate>
-          <p class="form-status" id="form-status" aria-live="polite"></p>
-          <div class="form-row">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" autocomplete="name" minlength="2" aria-describedby="name-error" required>
-            <span class="field-error" id="name-error"></span>
-          </div>
-
-          <div class="form-row">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" aria-describedby="email-error" required>
-            <span class="field-error" id="email-error"></span>
-          </div>
-
-          <div class="form-row">
-            <label for="subject">Subject</label>
-            <input id="subject" name="subject" type="text" minlength="3" aria-describedby="subject-error" required>
-            <span class="field-error" id="subject-error"></span>
-          </div>
-
-          <div class="form-row">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="6" minlength="10" aria-describedby="message-error" required></textarea>
-            <span class="field-error" id="message-error"></span>
-          </div>
-
-          <button class="button primary dark" type="submit">Send message</button>
-        </form>
-      </section>
     </section>
   </main>
   <div data-layout="footer"></div>

@@ -1,1 +1,18 @@
 @import url("../global.css");
+@import url("learn-editorial.css");
+
+.technology-learn {
+  --learn-bg-start: #eef4ee;
+  --learn-bg-end: #e8f0ed;
+  --learn-ink: #172d29;
+  --learn-text: #435c57;
+  --learn-muted: #506861;
+  --learn-dark: #152c28;
+  --learn-dark-2: #245047;
+  --learn-accent: #80bda2;
+  --learn-accent-soft: #eefaf2;
+}
+
+.technology-learn .learn-editorial-figure img {
+  object-position: center;
+}

@@ -1,1 +1,18 @@
 @import url("../global.css");
+@import url("learn-editorial.css");
+
+.bill-learn {
+  --learn-bg-start: #f6eddf;
+  --learn-bg-end: #f3eadf;
+  --learn-ink: #2f261c;
+  --learn-text: #5f5243;
+  --learn-muted: #665a4c;
+  --learn-dark: #30261c;
+  --learn-dark-2: #60452d;
+  --learn-accent: #d09d4f;
+  --learn-accent-soft: #fff2d6;
+}
+
+.bill-learn .learn-editorial-hero h1 {
+  font-size: clamp(2.75rem, 5.7vw, 5.5rem);
+}
