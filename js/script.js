@@ -5,6 +5,7 @@ const podcastPlayButton = document.querySelector(".podcast-trigger");
 const podcastPlayer = document.querySelector("#podcast-player");
 const contactForm = document.querySelector("#contact-form");
 const formStatus = document.querySelector("#form-status");
+const podcastShareLinks = document.querySelectorAll("[data-share-platform]");
 
 function scrollCards(direction) {
   if (!carousel) return;
@@ -51,6 +52,35 @@ function setupMenu() {
   });
 }
 
+function setupPodcastShare() {
+  if (!podcastShareLinks.length) return;
+
+  const podcastTitle = "Everyday Energy: Smart Choices. Stronger Future.";
+  const podcastText = "Listen to the Powering Tomorrow podcast: Everyday Energy: Smart Choices. Stronger Future.";
+  const podcastUrl = window.location.href.split("#")[0];
+  const encodedTitle = encodeURIComponent(podcastTitle);
+  const encodedText = encodeURIComponent(podcastText);
+  const encodedUrl = encodeURIComponent(podcastUrl);
+
+  podcastShareLinks.forEach((link) => {
+    const platform = link.dataset.sharePlatform;
+
+    if (platform === "linkedin") {
+      link.href = `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedTitle}&summary=${encodedText}`;
+    }
+
+    if (platform === "twitter") {
+      link.href = `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`;
+    }
+
+    if (platform === "tiktok" || platform === "instagram") {
+      link.addEventListener("click", () => {
+        navigator.clipboard?.writeText(`${podcastText} ${podcastUrl}`).catch(() => {});
+      });
+    }
+  });
+}
+
 previousButton?.addEventListener("click", () => scrollCards(-1));
 nextButton?.addEventListener("click", () => scrollCards(1));
 
@@ -64,6 +94,7 @@ podcastPlayButton?.addEventListener("click", () => {
 });
 
 setupMenu();
+setupPodcastShare();
 
 contactForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
