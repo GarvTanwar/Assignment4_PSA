@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Climate Challenge | Powering Tomorrow</title>
+  <link rel="stylesheet" href="../css/pages/quiz.css">
+</head>
+<body data-root="../">
+  <div data-layout="header"></div>
+  <main class="quiz-page" id="main-content">
+    <section class="quiz-hero" aria-labelledby="quiz-title">
+      <h1 id="quiz-title">Climate Challenge by Age</h1>
+      <p>Choose an age group, answer ten simple questions, and check the score at the end.</p>
+    </section>
+
+    <section class="quiz-layout" aria-label="Age group climate quizzes">
+      <section class="quiz-panel" aria-live="polite">
+        <div class="quiz-panel-header">
+          <div class="quiz-title-block">
+            <p class="quiz-count" id="quiz-count">10 questions</p>
+            <h2 id="quiz-heading">Ages 6-8 Quiz</h2>
+            <p id="group-description">Simple questions about saving energy, weather, and looking after Earth.</p>
+          </div>
+        </div>
+
+        <div class="quiz-picker" aria-label="Choose quiz age group">
+          <label for="quiz-group">Choose quiz group</label>
+          <select id="quiz-group">
+            <option value="ages-6-8">Ages 6-8</option>
+            <option value="ages-9-10">Ages 9-10</option>
+            <option value="ages-10-13">Ages 10-13</option>
+            <option value="ages-14-15">Ages 14-15</option>
+          </select>
+        </div>
+
+        <form id="quiz-form" class="question-list"></form>
+
+        <div class="quiz-actions">
+          <button class="quiz-button secondary" type="button" id="reset-button">Reset</button>
+          <button class="quiz-button primary" type="submit" form="quiz-form">Check answers</button>
+        </div>
+
+        <p class="result-message" id="result-message" aria-live="polite"></p>
+      </section>
+    </section>
+
+    <p class="quiz-source">
+      Question ideas adapted from the supplied Kids Climate Quiz PDF,
+      <a href="https://www.abc.net.au/science/games/quizzes/2009/climatechange/">ABC Science climate change quiz</a>, and
+      <a href="https://www.sciencelearn.org.nz/resources/3381-drive-it-down-climate-change-and-carbon-cycle-quiz">Science Learning Hub Drive it Down! climate change and carbon cycle quiz</a>.
+    </p>
+
+  </main>
+  <div data-layout="footer"></div>
+  <script src="../js/layout.js"></script>
+  <script src="../js/script.js"></script>
+  <script src="../js/quiz.js"></script>
+</body>
+</html>

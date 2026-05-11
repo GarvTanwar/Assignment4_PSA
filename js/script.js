@@ -22,6 +22,13 @@ function scrollCards(direction) {
 function setupMenu() {
   const menuToggle = document.querySelector(".menu-toggle");
   const navLinks = document.querySelector("#nav-links");
+  const dropdown = document.querySelector(".nav-dropdown");
+  const dropdownToggle = document.querySelector(".nav-dropdown-toggle");
+
+  function closeDropdown() {
+    dropdown?.classList.remove("is-open");
+    dropdownToggle?.setAttribute("aria-expanded", "false");
+  }
 
   menuToggle?.addEventListener("click", () => {
     const isOpen = navLinks.classList.toggle("is-open");
@@ -29,6 +36,14 @@ function setupMenu() {
     menuToggle.setAttribute("aria-expanded", String(isOpen));
     menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
     document.body.classList.toggle("menu-open", isOpen);
+
+    if (!isOpen) closeDropdown();
+  });
+
+  dropdownToggle?.addEventListener("click", (event) => {
+    event.stopPropagation();
+    const isOpen = dropdown.classList.toggle("is-open");
+    dropdownToggle.setAttribute("aria-expanded", String(isOpen));
   });
 
   navLinks?.addEventListener("click", (event) => {
@@ -39,16 +54,28 @@ function setupMenu() {
     menuToggle?.setAttribute("aria-expanded", "false");
     menuToggle?.setAttribute("aria-label", "Open menu");
     document.body.classList.remove("menu-open");
+    closeDropdown();
   });
 
   document.addEventListener("keydown", (event) => {
-    if (event.key !== "Escape" || !navLinks?.classList.contains("is-open")) return;
+    if (event.key !== "Escape") return;
 
-    navLinks.classList.remove("is-open");
-    menuToggle?.classList.remove("is-open");
-    menuToggle?.setAttribute("aria-expanded", "false");
-    menuToggle?.setAttribute("aria-label", "Open menu");
-    document.body.classList.remove("menu-open");
+    closeDropdown();
+
+    if (navLinks?.classList.contains("is-open")) {
+      navLinks.classList.remove("is-open");
+      menuToggle?.classList.remove("is-open");
+      menuToggle?.setAttribute("aria-expanded", "false");
+      menuToggle?.setAttribute("aria-label", "Open menu");
+      document.body.classList.remove("menu-open");
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!dropdown?.classList.contains("is-open")) return;
+    if (dropdown.contains(event.target)) return;
+
+    closeDropdown();
   });
 }
 
@@ -146,6 +173,86 @@ function setupAboutPage() {
   });
 }
 
+function setupNekoEasterEgg() {
+  let nekoInstance = null;
+  let nekoScriptPromise = null;
+  let typedBuffer = "";
+  let nekoEnabled = false;
+
+  function loadNekoScript() {
+    if (window.createNeko) return Promise.resolve();
+    if (nekoScriptPromise) return nekoScriptPromise;
+
+    nekoScriptPromise = new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = "https://louisabraham.github.io/nekojs/neko.js";
+      script.async = true;
+      script.onload = resolve;
+      script.onerror = reject;
+      document.body.append(script);
+    });
+
+    return nekoScriptPromise;
+  }
+
+  async function startNeko() {
+    if (nekoInstance) return;
+
+    nekoEnabled = true;
+
+    try {
+      await loadNekoScript();
+      if (!nekoEnabled) return;
+      if (!window.createNeko) throw new Error("Neko.js did not expose createNeko.");
+
+      nekoInstance = window.createNeko({
+        speed: 28,
+        fps: 120,
+        behaviorMode: 0,
+        allowBehaviorChange: true,
+        startX: window.innerWidth - 120,
+        startY: window.innerHeight - 120
+      });
+
+      nekoInstance.start();
+      document.body.classList.add("neko-is-active");
+    } catch (error) {
+      console.error("Neko.js failed to load:", error);
+    }
+  }
+
+  function stopNeko() {
+    nekoEnabled = false;
+
+    if (!nekoInstance) return;
+
+    nekoInstance.destroy();
+    nekoInstance = null;
+    document.body.classList.remove("neko-is-active");
+  }
+
+  document.addEventListener("keydown", (event) => {
+    const target = event.target;
+    const isTypingField = target instanceof HTMLElement && (
+      target.matches("input, textarea, select") || target.isContentEditable
+    );
+
+    if (isTypingField || event.ctrlKey || event.metaKey || event.altKey || event.key.length !== 1) return;
+
+    typedBuffer = `${typedBuffer}${event.key.toLowerCase()}`.slice(-3);
+
+    if (typedBuffer === "cat") {
+      startNeko();
+      typedBuffer = "";
+    }
+
+    if (typedBuffer === "dog") {
+      stopNeko();
+      typedBuffer = "";
+    }
+  });
+}
+
 previousButton?.addEventListener("click", () => scrollCards(-1));
 nextButton?.addEventListener("click", () => scrollCards(1));
 
@@ -161,6 +268,7 @@ podcastPlayButton?.addEventListener("click", () => {
 setupMenu();
 setupPodcastShare();
 setupAboutPage();
+setupNekoEasterEgg();
 
 contactForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
