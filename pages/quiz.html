@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Climate Challenge | Powering Tomorrow</title>
-  <link rel="stylesheet" href="../css/pages/quiz.css">
+  <link rel="icon" type="image/png" href="../assets/images/new_logo.png">
+  <link rel="stylesheet" href="../css/pages/quiz.css?v=3">
 </head>
 <body data-root="../">
   <div data-layout="header"></div>
@@ -25,13 +26,13 @@
         </div>
 
         <div class="quiz-picker" aria-label="Choose quiz age group">
-          <label for="quiz-group">Choose quiz group</label>
-          <select id="quiz-group">
-            <option value="ages-6-8">Ages 6-8</option>
-            <option value="ages-9-10">Ages 9-10</option>
-            <option value="ages-10-13">Ages 10-13</option>
-            <option value="ages-14-15">Ages 14-15</option>
-          </select>
+          <p id="quiz-group-label">Choose quiz group</p>
+          <div class="quiz-group-options" role="group" aria-labelledby="quiz-group-label">
+            <button class="quiz-group-option" type="button" data-group="ages-6-8">Ages 6-8</button>
+            <button class="quiz-group-option" type="button" data-group="ages-9-10">Ages 9-10</button>
+            <button class="quiz-group-option" type="button" data-group="ages-11-13">Ages 11-13</button>
+            <button class="quiz-group-option" type="button" data-group="ages-14-15">Ages 14-15</button>
+          </div>
         </div>
 
         <form id="quiz-form" class="question-list"></form>
@@ -44,12 +45,6 @@
         <p class="result-message" id="result-message" aria-live="polite"></p>
       </section>
     </section>
-
-    <p class="quiz-source">
-      Question ideas adapted from the supplied Kids Climate Quiz PDF,
-      <a href="https://www.abc.net.au/science/games/quizzes/2009/climatechange/">ABC Science climate change quiz</a>, and
-      <a href="https://www.sciencelearn.org.nz/resources/3381-drive-it-down-climate-change-and-carbon-cycle-quiz">Science Learning Hub Drive it Down! climate change and carbon cycle quiz</a>.
-    </p>
 
   </main>
   <div data-layout="footer"></div>

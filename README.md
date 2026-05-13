@@ -77,7 +77,7 @@ This page is the general overview for teaching children by age. It includes all 
 
 ### `pages/kids-6-7.html`
 
-This page is only for ages 6-7. It explains basic habits like turning off lights, closing doors, and learning through simple parent reminders.
+This page is only for ages 6-8. It explains basic habits like turning off lights, closing doors, and learning through simple parent reminders.
 
 ### `pages/kids-9-10.html`
 
@@ -85,11 +85,11 @@ This page is only for ages 9-10. It focuses on building routine through checking
 
 ### `pages/kids-12-13.html`
 
-This page is only for ages 12-13. It explains how pre-teens can understand energy waste, power bills, and shared family responsibility.
+This page is only for ages 11-13. It explains how pre-teens can understand energy waste, power bills, and shared family responsibility.
 
 ### `pages/kids-15-16.html`
 
-This page is only for ages 15-16. It explains how teenagers can manage their own devices and lead by example for younger siblings.
+This page is only for ages 14-15. It explains how teenagers can manage their own devices and lead by example for younger siblings.
 
 ### `pages/climate-change.html`
 

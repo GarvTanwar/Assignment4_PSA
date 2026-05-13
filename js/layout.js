@@ -41,11 +41,12 @@ function renderHeader() {
           <li><a href="${page("pages/infographic.html")}">${navIcon("info")}<span>Infographic</span></a></li>
           <li><a href="${page("pages/artefact.html")}">${navIcon("artefact")}<span>Physical Artefact</span></a></li>
           <li class="nav-dropdown">
-            <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="young-learners-menu">
-              ${navIcon("kids")}<span>Young Learners</span>
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="kidz-zone-menu">
+              ${navIcon("kids")}<span>Kidz Zone</span>
             </button>
-            <ul class="nav-dropdown-menu" id="young-learners-menu" aria-label="Young Learners pages">
-              <li><a href="${page("pages/fun-facts.html")}">Fun Facts</a></li>
+            <ul class="nav-dropdown-menu" id="kidz-zone-menu" aria-label="Kidz Zone pages">
+              <li><a href="${page("pages/kids.html")}">Kidz Zone</a></li>
+              <li><a href="${page("pages/fun-facts.html")}">Do you know ?</a></li>
               <li><a href="${page("pages/quiz.html")}">Quiz</a></li>
             </ul>
           </li>
@@ -88,13 +89,10 @@ function renderFooter() {
         <a href="${page("pages/contact.html")}">Contact Us</a>
         <a href="${page("pages/references.html")}">References</a>
       </nav>
-      <nav class="footer-column" aria-label="Young Learners links">
-        <p class="footer-heading">Young Learners</p>
-        <a href="${page("pages/fun-facts.html")}">Fun Facts</a>
-        <a href="${page("pages/quiz.html?group=ages-6-8")}">Quiz Ages 6-8</a>
-        <a href="${page("pages/quiz.html?group=ages-9-10")}">Quiz Ages 9-10</a>
-        <a href="${page("pages/quiz.html?group=ages-10-13")}">Quiz Ages 10-13</a>
-        <a href="${page("pages/quiz.html?group=ages-14-15")}">Quiz Ages 14-15</a>
+      <nav class="footer-column" aria-label="Kidz Zone links">
+        <p class="footer-heading">Kidz Zone</p>
+        <a href="${page("pages/fun-facts.html")}">Do you know ?</a>
+        <a href="${page("pages/quiz.html")}">Quiz</a>
       </nav>
       <nav class="footer-column" aria-label="Policies">
         <p class="footer-heading">Policies</p>

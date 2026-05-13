@@ -111,7 +111,7 @@ a {
 
 .navbar {
   width: min(1180px, calc(100% - 32px));
-  min-height: 74px;
+  min-height: 84px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(180px, 1fr) auto minmax(180px, 1fr);
@@ -129,8 +129,8 @@ a {
 
 .logo img {
   width: auto;
-  height: 62px;
-  max-width: 220px;
+  height: 74px;
+  max-width: 260px;
   object-fit: contain;
 }
 
@@ -1957,25 +1957,35 @@ button:focus-visible {
   }
 
   .nav-dropdown-menu {
-    position: static;
-    display: none;
+    position: static !important;
+    left: auto;
+    top: auto;
+    z-index: 1;
+    display: none !important;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
     min-width: 0;
-    padding: 0 0 0 35px;
+    margin: 0;
+    padding: 0 0 0 18px;
+    list-style: none;
     background: transparent;
     border: 0;
     border-radius: 0;
     box-shadow: none;
-    opacity: 1;
-    pointer-events: auto;
-    transform: none;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: none !important;
   }
 
   .nav-dropdown.is-open .nav-dropdown-menu {
-    display: block;
+    display: flex !important;
   }
 
   .nav-dropdown-menu li {
-    margin-bottom: 4px;
+    display: block;
+    margin-bottom: 0;
+    width: 100%;
   }
 
   .mobile-contact-item {
@@ -2068,15 +2078,24 @@ button:focus-visible {
   }
 
   .nav-dropdown-menu a {
+    width: 100%;
     min-height: 0;
-    padding: 7px 8px;
-    color: rgba(255, 255, 255, 0.78);
-    font-size: 0.86rem;
-    text-transform: none;
+    display: flex !important;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 8px;
+    color: var(--white) !important;
+    background: transparent;
+    border-radius: 0;
+    font-size: 1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    opacity: 1;
+    visibility: visible;
   }
 
   .nav-dropdown-menu a::after {
-    display: none;
+    display: block;
   }
 
   .nav-dropdown-menu a:hover,
@@ -2349,11 +2368,11 @@ button:focus-visible {
   }
 
   .logo {
-    max-width: 190px;
+    max-width: 220px;
   }
 
   .logo img {
-    height: 52px;
+    height: 60px;
   }
 
   .menu-toggle {

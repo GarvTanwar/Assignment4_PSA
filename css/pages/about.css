@@ -439,31 +439,24 @@
 }
 
 .approach-card:nth-child(4) {
-  color: var(--green-900);
-  background: #79b58a;
+  background: #3f765d;
 }
 
 .approach-card:nth-child(5) {
-  color: var(--green-900);
-  background: #d8efdf;
+  background: #163f36;
 }
 
 .approach-card span {
   align-self: start;
-  color: rgba(255, 255, 255, 0.62);
+  color: var(--white);
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(4.4rem, 7vw, 6rem);
   line-height: 0.9;
 }
 
-.approach-card:nth-child(4) span,
-.approach-card:nth-child(5) span {
-  color: rgba(36, 68, 56, 0.46);
-}
-
 .approach-card h3 {
   margin: 0;
-  color: inherit;
+  color: var(--white);
   font-size: clamp(1.55rem, 2.6vw, 2.35rem);
   line-height: 1.05;
   align-self: start;
@@ -471,8 +464,8 @@
 
 .approach-card p {
   margin: 16px 0 0;
-  color: inherit;
-  opacity: 0.78;
+  color: var(--white);
+  opacity: 1;
   font-size: 1rem;
   line-height: 1.58;
 }

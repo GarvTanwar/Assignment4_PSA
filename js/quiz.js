@@ -111,8 +111,8 @@ const quizGroups = {
       }
     ]
   },
-  "ages-10-13": {
-    heading: "Ages 10-13 Quiz",
+  "ages-11-13": {
+    heading: "Ages 11-13 Quiz",
     description: "Questions about climate science, carbon, and practical ways to reduce emissions.",
     questions: [
       {
@@ -225,7 +225,7 @@ const quizGroups = {
   }
 };
 
-const quizGroupSelect = document.querySelector("#quiz-group");
+const quizGroupButtons = document.querySelectorAll(".quiz-group-option");
 const groupDescription = document.querySelector("#group-description");
 const quizHeading = document.querySelector("#quiz-heading");
 const quizCount = document.querySelector("#quiz-count");
@@ -235,15 +235,23 @@ const resultMessage = document.querySelector("#result-message");
 
 const groupAliases = {
   "ages-6-7": "ages-6-8",
-  "ages-12-13": "ages-10-13",
+  "ages-10-13": "ages-11-13",
+  "ages-11-13": "ages-11-13",
+  "ages-12-13": "ages-11-13",
   "ages-15-16": "ages-14-15"
 };
 const params = new URLSearchParams(window.location.search);
 const requestedGroup = params.get("group");
 const normalizedGroup = groupAliases[requestedGroup] || requestedGroup;
-let activeGroup = quizGroups[normalizedGroup] ? normalizedGroup : quizGroupSelect?.value || "ages-6-8";
+let activeGroup = quizGroups[normalizedGroup] ? normalizedGroup : quizGroupButtons[0]?.dataset.group || "ages-6-8";
 
-if (quizGroupSelect) quizGroupSelect.value = activeGroup;
+function updateGroupButtons() {
+  quizGroupButtons.forEach((button) => {
+    const isActive = button.dataset.group === activeGroup;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+}
 
 const sourceLinks = {
   nasaGreenhouse: {
@@ -326,6 +334,7 @@ const questionExplanations = {
 function renderQuiz() {
   const group = quizGroups[activeGroup];
 
+  updateGroupButtons();
   quizHeading.textContent = group.heading;
   groupDescription.textContent = group.description;
   quizCount.textContent = `${group.questions.length} questions`;
@@ -405,18 +414,7 @@ function renderFeedback(feedback, status, explanation) {
   const explanationText = document.createElement("span");
   explanationText.textContent = `Explanation: ${explanation.text}`;
 
-  const sourceText = document.createElement("span");
-  sourceText.className = "feedback-source";
-  sourceText.textContent = "Source: ";
-
-  const sourceLink = document.createElement("a");
-  sourceLink.href = explanation.source.url;
-  sourceLink.textContent = explanation.source.title;
-  sourceLink.target = "_blank";
-  sourceLink.rel = "noopener noreferrer";
-
-  sourceText.append(sourceLink);
-  feedback.append(statusText, explanationText, sourceText);
+  feedback.append(statusText, explanationText);
 }
 
 function checkAnswers(event) {
@@ -460,12 +458,14 @@ function checkAnswers(event) {
     : `You scored ${score}/${group.questions.length}. Review the marked answers and try again.`;
 }
 
-quizGroupSelect?.addEventListener("change", () => {
-  activeGroup = quizGroupSelect.value;
-  const url = new URL(window.location.href);
-  url.searchParams.set("group", activeGroup);
-  window.history.replaceState({}, "", url);
-  renderQuiz();
+quizGroupButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    activeGroup = button.dataset.group;
+    const url = new URL(window.location.href);
+    url.searchParams.set("group", activeGroup);
+    window.history.replaceState({}, "", url);
+    renderQuiz();
+  });
 });
 
 quizForm?.addEventListener("submit", checkAnswers);
