@@ -154,7 +154,7 @@
   border-top: 1px solid rgba(35, 52, 45, 0.13);
 }
 
-.about-section h2 {
+.about-section > h3 {
   max-width: 820px;
   margin: 0;
   color: var(--green-900);
@@ -175,7 +175,7 @@
   transform: translateY(0);
 }
 
-.story-section h2 {
+.story-section > h3 {
   max-width: 900px;
 }
 
@@ -478,7 +478,7 @@
 }
 
 .team-flashcard {
-  min-height: 285px;
+  min-height: 390px;
   perspective: 1100px;
   outline: none;
 }
@@ -486,7 +486,7 @@
 .team-flashcard-inner {
   width: 100%;
   height: 100%;
-  min-height: 285px;
+  min-height: 390px;
   position: relative;
   transition: transform 600ms ease;
   transform-style: preserve-3d;
@@ -503,7 +503,7 @@
   inset: 0;
   display: grid;
   align-content: space-between;
-  padding: 18px;
+  padding: 14px;
   background: var(--white);
   border: 1px solid rgba(35, 52, 45, 0.13);
   border-radius: 18px;
@@ -511,17 +511,26 @@
   backface-visibility: hidden;
 }
 
+.team-front {
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-content: start;
+  gap: 10px;
+}
+
 .team-back {
+  align-content: center;
   color: var(--white);
   background: var(--green-900);
+  text-align: center;
   transform: rotateY(180deg);
 }
 
 .photo-slot {
-  aspect-ratio: 1;
   display: grid;
   place-items: center;
   width: 100%;
+  height: 100%;
+  min-height: 0;
   color: rgba(36, 68, 56, 0.58);
   background:
     linear-gradient(135deg, rgba(232, 244, 236, 0.9), rgba(220, 239, 247, 0.76)),
@@ -530,18 +539,43 @@
   border-radius: 10px;
   font-size: 0.9rem;
   font-weight: 900;
+  overflow: hidden;
+}
+
+.photo-slot:has(img) {
+  background: transparent;
+  border: 0;
+  border-radius: 12px;
+}
+
+.photo-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.16);
+}
+
+.photo-slot .team-photo-garv {
+  object-position: center top;
+  transform: scale(1.02);
+}
+
+.photo-slot .team-photo-taylor,
+.photo-slot .team-photo-madelaine {
+  transform: scale(1.02);
 }
 
 .team-face h3 {
-  margin: 16px 0 0;
+  margin: 0;
   color: var(--green-900);
-  font-size: 1.08rem;
+  font-size: clamp(1.02rem, 1.45vw, 1.22rem);
   line-height: 1.2;
 }
 
 .team-front-meta {
   display: grid;
   gap: 6px;
+  text-align: center;
 }
 
 .team-front-meta span {
@@ -561,6 +595,16 @@
   color: rgba(255, 255, 255, 0.75);
   font-weight: 800;
   line-height: 1.5;
+}
+
+.team-back blockquote {
+  margin: 0;
+  color: var(--white);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.32;
 }
 
 @media (max-width: 1120px) {
@@ -607,7 +651,7 @@
     padding: 54px 0;
   }
 
-  .about-section h2 {
+  .about-section > h3 {
     font-size: 2.25rem;
   }
 
@@ -760,7 +804,7 @@
     margin-top: 44px;
   }
 
-  .about-section h2 {
+  .about-section > h3 {
     font-size: 2rem;
   }
 

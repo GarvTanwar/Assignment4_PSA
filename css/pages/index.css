@@ -1,5 +1,28 @@
 @import url("../global.css");
 
+.feature-copy > h2.section-label,
+.age-section .section-heading h2.section-label,
+.kidz-zone-copy > h2.section-label,
+.closing-summary h2.section-label {
+  margin: 0 0 12px;
+  color: var(--green-700);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.feature-copy > h3,
+.age-section .section-heading h3,
+.closing-summary .summary-main > h3 {
+  margin: 0;
+  color: var(--green-900);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.08;
+  overflow-wrap: anywhere;
+}
+
 .kidz-zone-feature {
   width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
@@ -21,7 +44,7 @@
   filter: drop-shadow(0 20px 22px rgba(36, 68, 56, 0.16));
 }
 
-.kidz-zone-copy h2 {
+.kidz-zone-copy h3 {
   max-width: 650px;
   margin: 0;
   color: var(--green-900);
@@ -94,7 +117,7 @@
     text-align: center;
   }
 
-  .kidz-zone-copy h2 {
+  .kidz-zone-copy h3 {
     margin: 0 auto;
   }
 
